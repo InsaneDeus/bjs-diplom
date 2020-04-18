@@ -2,6 +2,14 @@
 
 const userForm = new UserForm();
 
-userForm.loginFormCallback = data => ApiConnector.login(data, response => response.success ? location.reload() : console.error("Ошибка!"));
+userForm.loginFormCallback = data => ApiConnector.login(
+    data, response => 
+    response.success ? location.reload() :
+    userForm.setLoginErrorMessage(response.data)
+    );
 
-userForm.registerFormCallback = data => ApiConnector.register(data, response => response.success ? location.reload() : console.error("Ошибка!"));
+userForm.registerFormCallback = data => ApiConnector.register(
+    data, response => 
+    response.success ? location.reload() :
+    userForm.setRegisterErrorMessage(response.data)
+    );

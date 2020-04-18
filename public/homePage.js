@@ -23,7 +23,7 @@ function getVolRate(){
 
 getVolRate();
 
-setInterval(getVolRate(), 60000);
+setInterval(getVolRate, 60000);
 
 //Операции с деньгами
 const moneyManager = new MoneyManager();
